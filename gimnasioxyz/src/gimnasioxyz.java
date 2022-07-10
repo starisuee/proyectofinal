@@ -1,4 +1,5 @@
 package proyectofinal;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -6,8 +7,8 @@ public class gimnasioxyz {
     private String[] nombreI = new String[3];
     private String[] nombrec = new String[5];
     private int[] idc = new int[5];
-    private String[] correo= new String[5];
-    private int [] tel = new int[5];
+    private String[] correo = new String[5];
+    private int[] tel = new int[5];
     private double[] ingresos = new double[5];
     private int[] meses = new int[4];
     private double[][] ventas_mensuales = new double[5][4];
@@ -82,7 +83,7 @@ public class gimnasioxyz {
 
     public int menu() {
         int i = 0;
-        String si_no = ""; //esto se reemplaza por un caracter 's' o 'n'
+        String si_no = ""; // esto se reemplaza por un caracter 's' o 'n'
         int j = 0;
         int opc = 0;
         Scanner sc = new Scanner(System.in);
@@ -97,12 +98,14 @@ public class gimnasioxyz {
             System.out.println("- Listar el total (dinero) de las suscripciones por mes.");
             System.out.println("- Listar el promedio de ingresos para los tres meses");
             System.out.println("- Listar los meses en los que el ingreso fue mayor al promedio");
-            System.out.println("- Listar los meses en los que el ingreso fue menor al promedio"); //Aún no los quito del menú principal porque no están hechos
+            System.out.println("- Listar los meses en los que el ingreso fue menor al promedio"); // Aún no los quito
+                                                                                                  // del menú principal
+                                                                                                  // porque no están
+                                                                                                  // hechos
             System.out.println("--------------------------------");
             System.out.println("4. Salir");
 
-
-            System.out.println("Introduzca la opcion deseada (1-4)");
+            System.out.println("Introduzca la opcion deseada (1-3)"); // son 3 opciones, no 4 como estaba definido
             opc = sc.nextInt();
             switch (opc) {
                 case 1:
@@ -110,21 +113,22 @@ public class gimnasioxyz {
                     System.out.println("Seleccione su siguiente opción:");
                     System.out.println("1. Administrar instructores ");
                     System.out.println("2. Administrar planes de subscripción ");
-                    System.out.println("3. Administrar clientes");//solo cambiar los precios, puede sr un arreglo de flotantes con los precios
+                    System.out.println("3. Administrar clientes");// solo cambiar los precios, puede sr un arreglo de
+                                                                  // flotantes con los precios
                     j = sc.nextInt();
-                    switch(j) {
-                    case 1:
-                    	administrar_instructor();
-                    	break;
-                    case 2:
-                    	administrar_planes();
-                    	break;
-                    case 3:
-                    	administrar_cliente();
-                    	break;
-                    default:
-                    	System.out.println("Opción inválida");
-                    	break;
+                    switch (j) {
+                        case 1:
+                            administrar_instructor();
+                            break;
+                        case 2:
+                            administrar_planes();
+                            break;
+                        case 3:
+                            administrar_cliente();
+                            break;
+                        default:
+                            System.out.println("Opción inválida");
+                            break;
                     }
                     menu();
                     break;
@@ -135,21 +139,21 @@ public class gimnasioxyz {
                     menu();
                     break;
                 case 4:
-                	System.out.println("¿Está seguro que desea salir? S/N");
-                	si_no = sc.nextLine();
-                	switch(si_no) {
-                	case "s":
-                	case "S":
-                		System.exit(0);
-                		break;
-                	case "n":
-                	case "N":
-                		menu();
-                	}
+                    System.out.println("¿Está seguro que desea salir? S/N");
+                    si_no = sc.nextLine();
+                    switch (si_no) {
+                        case "s":
+                        case "S":
+                            System.exit(0);
+                            break;
+                        case "n":
+                        case "N":
+                            menu();
+                    }
                     break;
                 default:
-                	System.out.println("Opción inválida");
-                	break;
+                    System.out.println("Opción inválida");
+                    break;
             }
         } while (i < 4);
 
@@ -219,13 +223,13 @@ public class gimnasioxyz {
     }
 
     public int administrar_planes() {
-    	int opc = 0;
-    	String[] plan = new String[3];
-    	
-    	Scanner sc = new Scanner(System.in);
-    	System.out.println("");
-    	System.out.println("////Administrar planes////");
-    	System.out.println("1. Crear planes");
+        int opc = 0;
+        String[] plan = new String[3];
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("");
+        System.out.println("////Administrar planes////");
+        System.out.println("1. Crear planes");
         System.out.println("2. Modificar planes");
         System.out.println("3. Eliminar planes");
         System.out.println("Introduzca la opcion deseada (1-3)");
@@ -327,20 +331,20 @@ public class gimnasioxyz {
         int i, id, tele;
         String nombres = "";
         String[] nombre = new String[5];
-        int [] ids = new int[5];
-        int [] telf = new int[5];
+        int[] ids = new int[5];
+        int[] telf = new int[5];
         Scanner sc = new Scanner(System.in);
         for (i = 0; i < nombrec.length; i++) {
             System.out.println("Ingrese el nombre del cliente" + i);
             nombres = sc.nextLine();
             nombre[i] = nombres;
         }
-        for (i=0; i<idc.length; i++){
+        for (i = 0; i < idc.length; i++) {
             System.out.println("Ingrese la id del cliente");
             id = sc.nextInt();
             ids[i] = id;
         }
-        for (i=0;i<tel.length; i++){
+        for (i = 0; i < tel.length; i++) {
             System.out.println("Ingrese el número de teléfono del cliente");
             tele = sc.nextInt();
             telf[i] = tele;
@@ -366,11 +370,13 @@ public class gimnasioxyz {
         System.out.println("¿Qué cliente desea modificar?");
         for (i = 0; i < modificado.length; i++) {
             System.out.println("instructor " + modificado[i]);
-        }// aqui muestro el contenido del arreglo para que se ingrese cual se desea modificar
+        } // aqui muestro el contenido del arreglo para que se ingrese cual se desea
+          // modificar
         System.out.println("Escriba el nombre del cliente: ");
         mod = sc.next();
         for (i = 0; i < modificado.length; i++) {
-            if (modificado[i].equalsIgnoreCase(mod)) {//aqui se utiliza un metodo que compara el dato a modificar para poder actualizarlo
+            if (modificado[i].equalsIgnoreCase(mod)) {// aqui se utiliza un metodo que compara el dato a modificar para
+                                                      // poder actualizarlo
                 System.out.println("Escriba el nuevo nombre: ");
                 nombre_n = sc.next();
                 modificado[i] = nombre_n;
@@ -395,10 +401,12 @@ public class gimnasioxyz {
         System.out.println("Qué instructor desea eliminar?");
         for (i = 0; i < eliminado.length; i++) {
             System.out.println("Instructor " + eliminado[i]);
-        }// aqui muestro el contenido del arreglo para que se ingrese cual se desea eliminar
+        } // aqui muestro el contenido del arreglo para que se ingrese cual se desea
+          // eliminar
         System.out.println("Escriba el nombre del instructor: ");
         elim = sc.next();
-        if (eliminado[i].equalsIgnoreCase(elim)) {// aqui se utiliza un metodo que compara el dato a eliminar para poder actualizarlo
+        if (eliminado[i].equalsIgnoreCase(elim)) {// aqui se utiliza un metodo que compara el dato a eliminar para poder
+                                                  // actualizarlo
 
             eliminado[i] = "null";
             System.out.println("Se eliminó el cliente correctamente");
@@ -410,17 +418,65 @@ public class gimnasioxyz {
 
         return eliminado;
     }
+
     public String[] crear_plan() {
-    	String[] planes = new String[3];
-    	return planes;
+        String[] planes = new String[3];
+        return planes;
     }
+
     public String[] modificar_plan() {
-    	String[] modificar = new String[3];
-    	return modificar;
+        String[] modificar = new String[3];
+        return modificar;
     }
+
     public String[] eliminar_plan() {
-    	String[] eliminar = new String[3];
-    	return eliminar;
+        String[] eliminar = new String[3];
+        return eliminar;
     }
-    //Voy a ver los métodos de los planes, están sin hacer para que pueda subir la clase main de una
+    // Voy a ver los métodos de los planes, están sin hacer para que pueda subir la
+    // clase main de una
+
+    public void clas_planes() { // ESTE ES EL METODO QUE PREGUNTA EN QUE MES ESTUVIERON ACTIVOS, AL FINAL
+                                // QUEDAMOS CON 3 VARIABLES QUE ALMACENAN LA CANTIDAD DE GENTE ACTIVA POR MES
+        int i;
+        int mes_uno = 0;
+        int mes_dos = 0;
+        int mes_tres = 0;
+        int uno = 0;
+        int dos = 0;
+        int tres = 0;
+        int iapa, iapc, ibpa, ibpb, icpa, icpb, pc;
+        Scanner sc = new Scanner(System.in);
+        for (i = 0; i < 5; i++) {
+            System.out.println("a cual plan desea subscribirse");
+
+            System.out.println("estuvo activo durante enero?");
+            uno = sc.nextInt();
+            switch (uno) {
+                case 1:
+                    mes_uno = mes_uno + 1;
+                    break;
+                case 2:
+                    mes_uno = mes_uno + 0;
+            }
+            System.out.println("estuvo activo durante febrero?");
+            dos = sc.nextInt();
+            switch (dos) {
+                case 1:
+                    mes_dos = mes_uno + 1;
+                    break;
+                case 2:
+                    mes_dos = mes_uno + 0;
+            }
+            System.out.println("estuvo activo durante marzo?");
+            tres = sc.nextInt();
+            switch (tres) {
+                case 1:
+                    mes_tres = mes_uno + 1;
+                    break;
+                case 2:
+                    mes_tres = mes_uno + 0;
+            }
+        }
+    }
 }
