@@ -195,10 +195,9 @@ public class gimnasioxyz {
         System.out.println("");
         System.out.println("////Administrar perfiles////");
         System.out.println("1. Ingresar cliente");
-        System.out.println("2. Agregar entrenadores");
-        System.out.println("3. Modificar entrenadores");
-        System.out.println("4. Eliminar entrenadores");
-        System.out.println("Introduzca la opcion deseada (1-4)");
+        System.out.println("2. Modificar cliente");
+        System.out.println("3. Eliminar cliente");
+        System.out.println("Introduzca la opcion deseada (1-3)");
         opc = sc.nextInt();
         switch (opc) {
             case 1:
@@ -239,12 +238,12 @@ public class gimnasioxyz {
                 break;
             case 2:
                 System.out.println("Modificar planes");
-                modificar_instructor();
+                modificar_plan();
                 menu();
                 break;
             case 3:
                 System.out.println("Eliminar planes");
-                eliminar_instructor();
+                eliminar_plan();
                 menu();
         }
         return opc;
