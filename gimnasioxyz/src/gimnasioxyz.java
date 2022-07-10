@@ -327,10 +327,11 @@ public class gimnasioxyz {
         return eliminado;
     }
 
-    public String[] ingresar_cliente() {
+    public void ingresar_cliente() {
         int i, id, tele;
-        String nombres = "";
+        String nombres = "", correo="";
         String[] nombre = new String[5];
+        String[] correos = new String[5];
         int[] ids = new int[5];
         int[] telf = new int[5];
         Scanner sc = new Scanner(System.in);
@@ -349,14 +350,23 @@ public class gimnasioxyz {
             tele = sc.nextInt();
             telf[i] = tele;
         }
+        for (i = 0; i < correos.length; i++) {
+            System.out.println("Ingrese el correo electronico del cliente");
+            correo= sc.next();
+            correos[i] = correo;
+        }
+        selecionar_plan();
+
         setNombrec(nombre);
         setId(ids);
         setTel(telf);
+        setCorreo(correos);
 
         System.out.println(Arrays.toString(nombre));
         System.out.println(Arrays.toString(ids));
         System.out.println(Arrays.toString(telf));
-        return nombre;
+        System.out.println(Arrays.toString(correos));
+
     }
 
     public String[] modificar_cliente() {
@@ -417,6 +427,61 @@ public class gimnasioxyz {
         }
 
         return eliminado;
+    }
+    public int[] selecionar_plan(){ // metodo para selecionar el plan y instructor del cliente
+        int i,j;
+        String instru="";
+      int [] selecionar = new int[3];
+      Scanner sc= new Scanner(System.in);
+      for (i=0;i<3;i++) {
+          System.out.println("Selecione el plan para " + nombrec[i]);
+          System.out.println("(0) Plan basico ");
+          System.out.println("(1) Plan intermedio ");
+          System.out.println("(2) Plan avanzado ");
+          System.out.println("Escoja del 0-2");
+          selecionar[i]=sc.nextInt();
+
+          if (selecionar[i]==0){
+              System.out.println("Plan basico inlcuye:");
+              System.out.println("-9 hora de uso de gimnasio semanal");
+              System.out.println("- No incluye instructor ");
+              System.out.println("- Precio: 22.00 $");
+          }
+          if (selecionar[i]==1){
+              System.out.println("Plan intermedio inlcuye:");
+              System.out.println("-14 hora de uso de gimnasio semanal");
+              System.out.println("- Incluye instructor");
+              System.out.println("- Precio: 27.70 $");
+
+              for (i=0;i<nombreI.length;i++){
+                      System.out.println(nombreI[i]);
+              }
+              System.out.println("Escoja el instructor");
+              instru=sc.next();
+              System.out.println("Plan intermedio inlcuye:");
+              System.out.println("-14 hora de uso de gimnasio semanal");
+              System.out.println("- Instructor "+instru);
+              System.out.println("- Precio: 27.70 $");
+
+          }
+          if (selecionar[i]==2){
+              System.out.println("Plan avanzado inlcuye:");
+              System.out.println("-921 hora de uso de gimnasio semanal");
+              System.out.println("- Incluye Instructor ");
+              System.out.println("- Precio: 22.00 $");
+
+              for (i=0;i<nombreI.length;i++){
+                  System.out.println(nombreI[i]);
+              }
+              System.out.println("Escoja el instructor");
+              instru=sc.next();
+              System.out.println("Plan avanzado inlcuye:");
+              System.out.println("-14 hora de uso de gimnasio semanal");
+              System.out.println("- Instructor "+instru);
+              System.out.println("- Precio: 30.00 $");
+          }
+      }
+      return selecionar;
     }
 
     public String[] crear_plan() {
