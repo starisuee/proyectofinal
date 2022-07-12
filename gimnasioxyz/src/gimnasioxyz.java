@@ -498,50 +498,8 @@ public class gimnasioxyz {
         String[] eliminar = new String[3];
         return eliminar;
     }
-    // Voy a ver los métodos de los planes, están sin hacer para que pueda subir la
-    // clase main de una
 
-    public void clas_planes() { // ESTE ES EL METODO QUE PREGUNTA EN QUE MES ESTUVIERON ACTIVOS, AL FINAL
-                                // QUEDAMOS CON 3 VARIABLES QUE ALMACENAN LA CANTIDAD DE GENTE ACTIVA POR MES
-        int i;
-        int mes_uno = 0;
-        int mes_dos = 0;
-        int mes_tres = 0;
-        int uno = 0;
-        int dos = 0;
-        int tres = 0;
-        int iapa, iapc, ibpa, ibpb, icpa, icpb, pc;
-        Scanner sc = new Scanner(System.in);
-        for (i = 0; i < 5; i++) {
-            System.out.println("a cual plan desea subscribirse");
-
-            System.out.println("estuvo activo durante enero?");
-            uno = sc.nextInt();
-            switch (uno) {
-                case 1:
-                    mes_uno = mes_uno + 1;
-                    break;
-                case 2:
-                    mes_uno = mes_uno + 0;
-            }
-            System.out.println("estuvo activo durante febrero?");
-            dos = sc.nextInt();
-            switch (dos) {
-                case 1:
-                    mes_dos = mes_uno + 1;
-                    break;
-                case 2:
-                    mes_dos = mes_uno + 0;
-            }
-            System.out.println("estuvo activo durante marzo?");
-            tres = sc.nextInt();
-            switch (tres) {
-                case 1:
-                    mes_tres = mes_uno + 1;
-                    break;
-                case 2:
-                    mes_tres = mes_uno + 0;
-            }
-        }
+    public void operacion(){
+        
     }
 }
