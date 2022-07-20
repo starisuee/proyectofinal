@@ -329,7 +329,7 @@ public class gimnasioxyz {
 
     public void ingresar_cliente() {
         int i, id, tele;
-        String nombres = "", correo="";
+        String nombres = "", correo = "";
         String[] nombre = new String[5];
         String[] correos = new String[5];
         int[] ids = new int[5];
@@ -352,7 +352,7 @@ public class gimnasioxyz {
         }
         for (i = 0; i < correos.length; i++) {
             System.out.println("Ingrese el correo electronico del cliente");
-            correo= sc.next();
+            correo = sc.next();
             correos[i] = correo;
         }
         selecionar_plan();
@@ -428,60 +428,61 @@ public class gimnasioxyz {
 
         return eliminado;
     }
-    public int[] selecionar_plan(){ // metodo para selecionar el plan y instructor del cliente
-        int i,j;
-        String instru="";
-      int [] selecionar = new int[3];
-      Scanner sc= new Scanner(System.in);
-      for (i=0;i<3;i++) {
-          System.out.println("Selecione el plan para " + nombrec[i]);
-          System.out.println("(0) Plan basico ");
-          System.out.println("(1) Plan intermedio ");
-          System.out.println("(2) Plan avanzado ");
-          System.out.println("Escoja del 0-2");
-          selecionar[i]=sc.nextInt();
 
-          if (selecionar[i]==0){
-              System.out.println("Plan basico inlcuye:");
-              System.out.println("-9 hora de uso de gimnasio semanal");
-              System.out.println("- No incluye instructor ");
-              System.out.println("- Precio: 22.00 $");
-          }
-          if (selecionar[i]==1){
-              System.out.println("Plan intermedio inlcuye:");
-              System.out.println("-14 hora de uso de gimnasio semanal");
-              System.out.println("- Incluye instructor");
-              System.out.println("- Precio: 27.70 $");
+    public int[] selecionar_plan() { // metodo para selecionar el plan y instructor del cliente
+        int i, j;
+        String instru = "";
+        int[] selecionar = new int[3];
+        Scanner sc = new Scanner(System.in);
+        for (i = 0; i < 3; i++) {
+            System.out.println("Selecione el plan para " + nombrec[i]);
+            System.out.println("(0) Plan basico ");
+            System.out.println("(1) Plan intermedio ");
+            System.out.println("(2) Plan avanzado ");
+            System.out.println("Escoja del 0-2");
+            selecionar[i] = sc.nextInt();
 
-              for (i=0;i<nombreI.length;i++){
-                      System.out.println(nombreI[i]);
-              }
-              System.out.println("Escoja el instructor");
-              instru=sc.next();
-              System.out.println("Plan intermedio inlcuye:");
-              System.out.println("-14 hora de uso de gimnasio semanal");
-              System.out.println("- Instructor "+instru);
-              System.out.println("- Precio: 27.70 $");
+            if (selecionar[i] == 0) {
+                System.out.println("Plan basico inlcuye:");
+                System.out.println("-9 hora de uso de gimnasio semanal");
+                System.out.println("- No incluye instructor ");
+                System.out.println("- Precio: 22.00 $");
+            }
+            if (selecionar[i] == 1) {
+                System.out.println("Plan intermedio inlcuye:");
+                System.out.println("-14 hora de uso de gimnasio semanal");
+                System.out.println("- Incluye instructor");
+                System.out.println("- Precio: 27.70 $");
 
-          }
-          if (selecionar[i]==2){
-              System.out.println("Plan avanzado inlcuye:");
-              System.out.println("-921 hora de uso de gimnasio semanal");
-              System.out.println("- Incluye Instructor ");
-              System.out.println("- Precio: 22.00 $");
+                for (i = 0; i < nombreI.length; i++) {
+                    System.out.println(nombreI[i]);
+                }
+                System.out.println("Escoja el instructor");
+                instru = sc.next();
+                System.out.println("Plan intermedio inlcuye:");
+                System.out.println("-14 hora de uso de gimnasio semanal");
+                System.out.println("- Instructor " + instru);
+                System.out.println("- Precio: 27.70 $");
 
-              for (i=0;i<nombreI.length;i++){
-                  System.out.println(nombreI[i]);
-              }
-              System.out.println("Escoja el instructor");
-              instru=sc.next();
-              System.out.println("Plan avanzado inlcuye:");
-              System.out.println("-14 hora de uso de gimnasio semanal");
-              System.out.println("- Instructor "+instru);
-              System.out.println("- Precio: 30.00 $");
-          }
-      }
-      return selecionar;
+            }
+            if (selecionar[i] == 2) {
+                System.out.println("Plan avanzado inlcuye:");
+                System.out.println("-921 hora de uso de gimnasio semanal");
+                System.out.println("- Incluye Instructor ");
+                System.out.println("- Precio: 22.00 $");
+
+                for (i = 0; i < nombreI.length; i++) {
+                    System.out.println(nombreI[i]);
+                }
+                System.out.println("Escoja el instructor");
+                instru = sc.next();
+                System.out.println("Plan avanzado inlcuye:");
+                System.out.println("-14 hora de uso de gimnasio semanal");
+                System.out.println("- Instructor " + instru);
+                System.out.println("- Precio: 30.00 $");
+            }
+        }
+        return selecionar;
     }
 
     public String[] crear_plan() {
@@ -499,7 +500,39 @@ public class gimnasioxyz {
         return eliminar;
     }
 
-    public void operacion(){
-        
+    public float promedio(float[] ejem) { // esto se debe cambiar por el arreglo real
+        float sumt[] = new int[3];
+        float sum = 0;
+        float prom = 0;
+        sumt = ejem;
+        for (int i = 0; i < sumt.length; i++) {
+            sum = sum + sumt[i];
+        }
+        prom = sum / 3;
+        return prom;
+    }
+
+    public void menor_prome(float[] ejem, float prom) {
+        float meses[] = new int[3];
+        meses = ejem;
+        int prome = prom;
+        System.out.println("meses con ganacias por debajo del promedio");
+        for (int i = 0; i < meses.length; i++) {
+            if (meses[i] < prome) {
+                System.out.println("-" + meses[i]);
+            }
+        }
+    }
+
+    public void mayorprome(float[] ejem, float prom) {
+        float meses[] = new int[3];
+        meses_ar = ejem;
+        int promeu = prom;
+        System.out.println("meses con ganacias por arriba del promedio");
+        for (int i = 0; i < meses_ar.length; i++) {
+            if (meses_ar[i] < promeu) {
+                System.out.println("-" + meses_ar[i]);
+            }
+        }
     }
 }
