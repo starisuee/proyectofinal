@@ -9,13 +9,14 @@ public class gimnasioxyz {
     private int[] idc = new int[5];
     private String[] correo = new String[5];
     private int[] tel = new int[5];
-    private double[] ingresos = new double[5];
-    private int[] meses = new int[4];
-    private double[][] ventas_mensuales = new double[5][4];
+    private float [] ingresos = new float[5];
+    private int[] meses = new int[3];
+    private double[] ventas_mensuales = new double[3];
 
     public String[] getNombrec() {
         return nombrec;
     }
+
 
     public void setNombrec(String[] nombrec) {
         this.nombrec = nombrec;
@@ -29,11 +30,11 @@ public class gimnasioxyz {
         this.nombreI = nombreI;
     }
 
-    public double[] getIngresos() {
+    public float [] getIngresos() {
         return ingresos;
     }
 
-    public void setIngresos(double[] ingresos) {
+    public void setIngresos(float[] ingresos) {
         this.ingresos = ingresos;
     }
 
@@ -53,11 +54,11 @@ public class gimnasioxyz {
         this.meses = meses;
     }
 
-    public double[][] getVentas_mensuales() {
+    public double[] getVentas_mensuales() {
         return ventas_mensuales;
     }
 
-    public void setVentas_mensuales(double[][] ventas_mensuales) {
+    public void setVentas_mensuales(double[] ventas_mensuales) {
         this.ventas_mensuales = ventas_mensuales;
     }
 
@@ -499,40 +500,83 @@ public class gimnasioxyz {
         String[] eliminar = new String[3];
         return eliminar;
     }
+    public float[] total(){
+        int i;
+        float[] total=new float[5];
+        float suma = 0;
+        total = ingresos;
 
-    public float promedio(float[] ejem) { // esto se debe cambiar por el arreglo real
-        float sumt[] = new int[3];
+        for(i=0; i<total.length;i++) {
+            suma = suma + total[i];
+        }
+
+        return total;
+    }
+
+    public float [] registar_ingresos(){
+        float [] ingresos = new float[5];
+        float[] activo = new float[5];
+        int i, plan;
+        Scanner sc = new Scanner(System.in);
+        for (i=0; i<5; i++){
+            System.out.println("Selecione el plan del cliente del 0-2 "+nombrec[i]);
+            plan = sc.nextInt();
+            if (plan ==0){
+                System.out.println("Cuantos Meses estuvo activa la suscripcion de "+nombrec[i]);
+                activo[i] = sc.nextFloat();
+                ingresos[i]= (float) (activo[i] * 22.00);
+            }
+            if (plan ==1){
+                System.out.println("Cuantos Meses estuvo activa la suscripcion de "+nombrec[i]);
+                activo[i] = sc.nextFloat();
+                ingresos[i]= (float) (activo[i] * 22.00);
+            }
+            if (plan ==2){
+                System.out.println("Cuantos Meses estuvo activa la suscripcion de "+nombrec[i]);
+                activo[i] = sc.nextFloat();
+                ingresos[i]= (float) (activo[i] * 22.00);
+            }
+
+        }
+        setIngresos(ingresos);
+        return ingresos;
+    }
+
+    public float[] promedio() { // esto se debe cambiar por el arreglo real
+        float sumt[] = new float[3];
         float sum = 0;
         float prom = 0;
-        sumt = ejem;
+        sumt = total();
         for (int i = 0; i < sumt.length; i++) {
             sum = sum + sumt[i];
         }
         prom = sum / 3;
-        return prom;
+        return sumt;
     }
 
-    public void menor_prome(float[] ejem, float prom) {
-        float meses[] = new int[3];
-        meses = ejem;
-        int prome = prom;
+    public float[] menor_prome() {
+        float[] prom = new float[3];
+        prom = promedio();
+
         System.out.println("meses con ganacias por debajo del promedio");
-        for (int i = 0; i < meses.length; i++) {
-            if (meses[i] < prome) {
+        for (int i = 0; i < prom.length; i++) {
+            if (prom < prom[i]) {
                 System.out.println("-" + meses[i]);
             }
         }
+        return prom;
     }
 
-    public void mayorprome(float[] ejem, float prom) {
-        float meses[] = new int[3];
-        meses_ar = ejem;
-        int promeu = prom;
-        System.out.println("meses con ganacias por arriba del promedio");
-        for (int i = 0; i < meses_ar.length; i++) {
-            if (meses_ar[i] < promeu) {
-                System.out.println("-" + meses_ar[i]);
+    public float[] mayorprome() {
+        float[] prom = new float[3];
+        prom = promedio();
+
+        System.out.println("meses con ganacias por debajo del promedio");
+        for (int i = 0; i < prom.length; i++) {
+            if (prom > prom[i]) {
+                System.out.println("-" + meses[i]);
             }
         }
+        return prom;
     }
 }
